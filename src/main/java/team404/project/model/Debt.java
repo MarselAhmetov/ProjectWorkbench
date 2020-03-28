@@ -1,33 +1,27 @@
 package team404.project.model;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @Builder
 @Entity
-public class User {
+public class Debt {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    private Long debtCount;
 
-    private String username;
-    private String email;
-    private String password;
+    @ManyToOne
+    private User debtor;
 
-    @Enumerated(EnumType.STRING)
-    private Status status;
-
-    @Enumerated(EnumType.STRING)
-    private Role role;
-
-    @ManyToMany
-    List<User> friends;
+    @ManyToOne
+    private User owner;
 }

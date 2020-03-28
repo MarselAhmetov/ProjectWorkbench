@@ -5,5 +5,4 @@ import team404.project.model.ConfirmCode;
 
 public interface ConfirmCodeRepository extends CrudRepository<ConfirmCode, Integer> {
     ConfirmCode getByCode(String code);
-    void deleteByCode(String code);
 }

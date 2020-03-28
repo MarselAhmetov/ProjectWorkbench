@@ -2,12 +2,14 @@ package team404.project.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class SignInController {
 
     @GetMapping("/signIn")
-    public String getLoginPage() {
-        return "signin";
+    public ModelAndView getLoginPage() {
+        ModelAndView modelAndView = new ModelAndView("signin");
+        return modelAndView;
     }
 }

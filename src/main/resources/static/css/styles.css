@@ -1,0 +1,19 @@
+.personal-area-header {
+    background-color: lightyellow;
+    border-radius: 15px;
+    padding: 10px 15px;
+}
+
+.personal-area-header h3 {
+    margin: 0px;
+}
+.personal-area-header small {
+    color: #495057;
+}
+.personal-area-header a {
+    text-decoration: none;
+    color: #495057;
+}
+.personal-area-menu .btn {
+    margin: 10px 15px 10px 0px;
+}

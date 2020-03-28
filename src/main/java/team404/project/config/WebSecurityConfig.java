@@ -29,12 +29,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.authorizeRequests()
                 .antMatchers("/signUp").permitAll()
+                .antMatchers("/profile").authenticated()
                 .antMatchers("/").authenticated();
 
         http.formLogin()
                 .loginPage("/signIn")
                 .usernameParameter("username")
-                .defaultSuccessUrl("/")
+                .defaultSuccessUrl("/profile")
                 .failureUrl("/signIn?error")
                 .permitAll();
     }

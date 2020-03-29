@@ -1,4 +1,4 @@
-package team404.project.service;
+package team404.project.service.interfaces;
 
 import team404.project.model.ConfirmCode;
 

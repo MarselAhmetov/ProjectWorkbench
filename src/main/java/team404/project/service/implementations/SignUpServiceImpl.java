@@ -1,11 +1,14 @@
-package team404.project.service;
+package team404.project.service.implementations;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import team404.project.model.*;
+import team404.project.model.dto.SignUpDto;
 import team404.project.repository.ConfirmCodeRepository;
 import team404.project.repository.UserRepository;
+import team404.project.service.interfaces.MailSenderService;
+import team404.project.service.interfaces.SignUpService;
 
 import java.util.UUID;
 
@@ -27,7 +30,7 @@ public class SignUpServiceImpl implements SignUpService {
                 .username(signUpDto.getUsername())
                 .password(passwordEncoder.encode(signUpDto.getPassword()))
                 .role(Role.USER)
-                .status(Status.NOT_CONFIRMED)
+                .accountStatus(AccountStatus.NOT_CONFIRMED)
                 .build();
         userRepository.save(user);
 

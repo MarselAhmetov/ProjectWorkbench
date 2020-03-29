@@ -1,12 +1,13 @@
-package team404.project.service;
+package team404.project.service.implementations;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import team404.project.model.ConfirmCode;
-import team404.project.model.Status;
+import team404.project.model.AccountStatus;
 import team404.project.model.User;
 import team404.project.repository.ConfirmCodeRepository;
 import team404.project.repository.UserRepository;
+import team404.project.service.interfaces.ConfirmService;
 
 @Service
 public class ConfirmServiceImpl implements ConfirmService {
@@ -21,7 +22,7 @@ public class ConfirmServiceImpl implements ConfirmService {
         User user;
         if (confirmCode != null) {
             user = confirmCode.getUser();
-            user.setStatus(Status.CONFIRMED);
+            user.setAccountStatus(AccountStatus.CONFIRMED);
             userRepository.save(user);
             confirmCodeRepository.delete(confirmCode);
         }

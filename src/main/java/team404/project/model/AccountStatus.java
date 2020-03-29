@@ -1,5 +1,5 @@
 package team404.project.model;
 
-public enum Status {
+public enum AccountStatus {
     CONFIRMED, NOT_CONFIRMED;
 }

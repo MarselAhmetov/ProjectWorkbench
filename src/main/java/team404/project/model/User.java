@@ -23,11 +23,11 @@ public class User {
     private String password;
 
     @Enumerated(EnumType.STRING)
-    private Status status;
+    private AccountStatus accountStatus;
 
     @Enumerated(EnumType.STRING)
     private Role role;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     List<User> friends;
 }

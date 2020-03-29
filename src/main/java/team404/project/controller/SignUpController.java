@@ -5,8 +5,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
-import team404.project.model.SignUpDto;
-import team404.project.service.SignUpService;
+import team404.project.model.dto.SignUpDto;
+import team404.project.service.interfaces.SignUpService;
 
 @Controller
 public class SignUpController {

@@ -1,10 +1,11 @@
-package team404.project.service;
+package team404.project.service.implementations;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 import team404.project.model.MailMessage;
+import team404.project.service.interfaces.MailSenderService;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;

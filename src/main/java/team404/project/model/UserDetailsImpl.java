@@ -1,11 +1,11 @@
-package team404.project.service;
+package team404.project.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import team404.project.model.Status;
+import team404.project.model.AccountStatus;
 import team404.project.model.User;
 
 import java.util.Collection;
@@ -50,8 +50,8 @@ public class UserDetailsImpl implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        if(user != null) {
-            return user.getStatus().equals(Status.CONFIRMED);
+        if (user != null) {
+            return user.getAccountStatus().equals(AccountStatus.CONFIRMED);
         }
         return false;
     }

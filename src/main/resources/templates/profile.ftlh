@@ -180,20 +180,25 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="/login" method="get">
+                <form action="/debts" method="post">
                     <div class="modal-body">
 
                         <div class="form-group">
-                            <input type="number" class="form-control" name="username" placeholder="Debt amount">
+                            <input type="number" class="form-control" name="debtCount" placeholder="Debt amount" required>
                         </div>
                         <div class="form-group">
                             <input type="text" class="form-control" name="description" placeholder="Description">
                         </div>
                         <div class="form-group">
-                            <select class="form-control" name="name">
-                                <option value="id">Debtor 1</option>
-                                <option value="id">Debtor 2</option>
+                            <select class="form-control" name="friendId" required>
+                                <option value="-1">None</option>
+                                <#list user.friends as friend>
+                                    <option value="${friend.id}">${friend.username}</option>
+                                </#list>
                             </select>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="debtorName" placeholder="Fill this line if you did not choose friend">
                         </div>
 
                     </div>

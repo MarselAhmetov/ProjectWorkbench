@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="../static/css/styles.css">
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
             integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
@@ -27,28 +28,36 @@
 <br>
 <br>
 <div class="container">
-    <#list friends as friend>
-        <div class="row text-center">
-            <table class="table table-hover">
-                <thead>
-                <tr class="table-warning">
-                    <th scope="col">Username</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Go to</th>
-                </tr>
-                </thead>
-                <tbody>
+    <div class="row text-center">
+        <table class="table table-hover">
+            <thead>
+            <tr class="table-warning">
+                <th scope="col">Debtor</th>
+                <th scope="col">Description</th>
+                <th scope="col">Debt count</th>
+                <th scope="col">Go to</th>
+            </tr>
+            </thead>
+            <tbody>
+            <#list debts as debt>
                 <tr>
                     <form action="/person">
-                        <td>${friend.username}</td>
-                        <td>${friend.email}</td>
-                        <td><button class="btn btn-warning" type="submit" value="${friend.id}">${friend.username}</button></td>
+                        <#if !debt.debtor??>
+                            <td>${debt.debtorName}</td>
+                        <#else>
+                            <td>${debt.debtor.username}</td>
+                        </#if>
+                        <td>${debt.description}</td>
+                        <td>${debt.debtCount}</td>
+                        <td>
+                            <button class="btn btn-warning" type="submit" value="${debt.id}">Delete</button>
+                        </td>
                     </form>
                 </tr>
-                </tbody>
-            </table>
-        </div>
-    </#list>
+            </#list>
+            </tbody>
+        </table>
+    </div>
 </div>
 </body>
 </html>

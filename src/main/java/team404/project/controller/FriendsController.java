@@ -31,8 +31,9 @@ public class FriendsController {
     MailSenderService mailSenderService;
 
     @GetMapping("/friends")
-    public ModelAndView getFriendsPage() {
+    public ModelAndView getFriendsPage(@AuthenticationPrincipal UserDetailsImpl userDetails) {
         ModelAndView modelAndView = new ModelAndView("friends");
+        modelAndView.addObject("friends", userDetails.getUser().getFriends());
         return modelAndView;
     }
 

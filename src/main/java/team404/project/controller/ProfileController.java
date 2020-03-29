@@ -16,9 +16,9 @@ public class ProfileController {
     FriendRequestRepository friendRequestRepository;
 
     @GetMapping("/profile")
-    public ModelAndView getProfile(@AuthenticationPrincipal UserDetails user) {
+    public ModelAndView getProfile(@AuthenticationPrincipal UserDetailsImpl user) {
         ModelAndView modelAndView = new ModelAndView("profile");
-        modelAndView.addObject("user", user);
+        modelAndView.addObject("user", user.getUser());
         modelAndView.addObject("friendRequests", friendRequestRepository.getByReceiver(((UserDetailsImpl) user).getUser()));
         return modelAndView;
     }

@@ -18,7 +18,8 @@ public class Debt {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private Long debtCount;
-
+    private String description;
+    private String debtorName;
     @ManyToOne
     private User debtor;
 

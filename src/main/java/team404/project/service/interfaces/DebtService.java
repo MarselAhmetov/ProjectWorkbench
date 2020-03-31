@@ -9,4 +9,5 @@ public interface DebtService {
     void create(Debt debt);
     void deleteById(Integer id);
     List<Debt> getByOwner(User owner);
+    List<Debt> getByDebtor(User debtor);
 }

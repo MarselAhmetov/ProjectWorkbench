@@ -26,7 +26,9 @@ public class DebtController {
     public ModelAndView getDebtsPage(@AuthenticationPrincipal UserDetailsImpl userDetails) {
         ModelAndView modelAndView = new ModelAndView();
         List<Debt> debts = debtService.getByOwner(userDetails.getUser());
+        List<Debt> mydebts = debtService.getByDebtor(userDetails.getUser());
         modelAndView.addObject("debts", debts);
+        modelAndView.addObject("mydebts", mydebts);
         modelAndView.setViewName("debts");
         return modelAndView;
     }

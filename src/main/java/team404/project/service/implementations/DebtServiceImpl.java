@@ -29,4 +29,9 @@ public class DebtServiceImpl implements DebtService {
     public List<Debt> getByOwner(User owner) {
         return debtRepository.getAllByOwner(owner);
     }
+
+    @Override
+    public List<Debt> getByDebtor(User debtor) {
+        return debtRepository.getAllByDebtor(debtor);
+    }
 }

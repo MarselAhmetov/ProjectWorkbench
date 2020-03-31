@@ -182,7 +182,7 @@
                 </div>
                 <form action="/debts" method="post">
                     <div class="modal-body">
-
+                        <input type="radio" name="whos">
                         <div class="form-group">
                             <input type="number" class="form-control" name="debtCount" placeholder="Debt amount" required>
                         </div>

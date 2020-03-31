@@ -9,4 +9,5 @@ import java.util.List;
 public interface DebtRepository extends CrudRepository<Debt, Integer> {
     void deleteById(Integer id);
     List<Debt> getAllByOwner(User owner);
+    List<Debt> getAllByDebtor(User debtor);
 }

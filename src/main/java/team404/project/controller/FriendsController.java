@@ -33,7 +33,7 @@ public class FriendsController {
     @GetMapping("/friends")
     public ModelAndView getFriendsPage(@AuthenticationPrincipal UserDetailsImpl userDetails) {
         ModelAndView modelAndView = new ModelAndView("friends");
-        modelAndView.addObject("friends", userDetails.getUser().getFriends());
+        modelAndView.addObject("friends", userService.getById(userDetails.getUser().getId()).getFriends());
         return modelAndView;
     }
 
@@ -60,16 +60,21 @@ public class FriendsController {
             modelAndView.setViewName("redirect:/friends?error");
             return modelAndView;
         }
+        modelAndView.setViewName("redirect:/friends");
         return modelAndView;
     }
 
     @PostMapping("/friendRequest")
     public ModelAndView friendRequest(@AuthenticationPrincipal UserDetailsImpl userDetails, @RequestParam("request") Integer requestId, @RequestParam("status") String status, @RequestParam("sender") Integer senderId) {
         ModelAndView modelAndView = new ModelAndView();
+
         User sender = userService.getById(senderId);
         sender.getFriends().add(userDetails.getUser());
-        userDetails.getUser().getFriends().add(sender);
-        userService.save(userDetails.getUser());
+
+        User currentUser = userService.getById(userDetails.getUser().getId());
+        currentUser.getFriends().add(sender);
+
+        userService.save(currentUser);
         userService.save(sender);
         friendRequestService.deleteById(requestId);
         modelAndView.setViewName("redirect:/profile");

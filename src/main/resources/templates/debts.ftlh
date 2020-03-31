@@ -28,35 +28,67 @@
 <br>
 <br>
 <div class="container">
-    <div class="row text-center">
-        <table class="table table-hover">
-            <thead>
-            <tr class="table-warning">
-                <th scope="col">Debtor</th>
-                <th scope="col">Description</th>
-                <th scope="col">Debt count</th>
-                <th scope="col">Go to</th>
-            </tr>
-            </thead>
-            <tbody>
-            <#list debts as debt>
-                <tr>
-                    <form action="/person">
-                        <#if !debt.debtor??>
-                            <td>${debt.debtorName}</td>
-                        <#else>
-                            <td>${debt.debtor.username}</td>
-                        </#if>
-                        <td>${debt.description}</td>
-                        <td>${debt.debtCount}</td>
-                        <td>
-                            <button class="btn btn-warning" type="submit" value="${debt.id}">Delete</button>
-                        </td>
-                    </form>
+    <div class="row">
+        <div class="col-md-6 text-center">
+            <table class="table table-hover">
+                <thead>
+                <tr class="table-warning">
+                    <th scope="col">Debtor</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Debt count</th>
+                    <th scope="col">Go to</th>
                 </tr>
-            </#list>
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                <#list debts as debt>
+                    <tr>
+                        <form action="/person">
+                            <#if !debt.debtor??>
+                                <td>${debt.debtorName}</td>
+                            <#else>
+                                <td>${debt.debtor.username}</td>
+                            </#if>
+                            <td>${debt.description}</td>
+                            <td>${debt.debtCount}</td>
+                            <td>
+                                <button class="btn btn-warning" type="submit" value="${debt.id}">Delete</button>
+                            </td>
+                        </form>
+                    </tr>
+                </#list>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-6 text-center">
+            <table class="table table-hover">
+                <thead>
+                <tr class="table-warning">
+                    <th scope="col">Debtor</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Debt count</th>
+                    <th scope="col">Go to</th>
+                </tr>
+                </thead>
+                <tbody>
+                <#list mydebts as mydebt>
+                    <tr>
+                        <form action="/person">
+                            <#if !mydebt.debtor??>
+                                <td>${mydebt.debtorName}</td>
+                            <#else>
+                                <td>${mydebt.debtor.username}</td>
+                            </#if>
+                            <td>${mydebt.description}</td>
+                            <td>${mydebt.debtCount}</td>
+                            <td>
+                                <button class="btn btn-warning" type="submit" value="${mydebt.id}">Delete</button>
+                            </td>
+                        </form>
+                    </tr>
+                </#list>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 </body>

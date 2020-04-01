@@ -182,7 +182,17 @@
                 </div>
                 <form action="/debts" method="post">
                     <div class="modal-body">
-                        <input type="radio" name="whos">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <label class="input-group-text" for="inputGroupSelect01">Debt</label>
+                                </div>
+                                <select class="form-control" name="whos" id="inputGroupSelect01" required>
+                                    <option value="friend">Friend</option>
+                                    <option value="user">Me</option>
+                                </select>
+                            </div>
+                        </div>
                         <div class="form-group">
                             <input type="number" class="form-control" name="debtCount" placeholder="Debt amount" required>
                         </div>
@@ -190,12 +200,17 @@
                             <input type="text" class="form-control" name="description" placeholder="Description">
                         </div>
                         <div class="form-group">
-                            <select class="form-control" name="friendId" required>
-                                <option value="-1">None</option>
-                                <#list user.friends as friend>
-                                    <option value="${friend.id}">${friend.username}</option>
-                                </#list>
-                            </select>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <label class="input-group-text" for="inputGroupSelect02">Friend</label>
+                                </div>
+                                <select class="form-control" name="friendId" id="inputGroupSelect02" required>
+                                    <option value="-1">None</option>
+                                    <#list user.friends as friend>
+                                        <option value="${friend.id}">${friend.username}</option>
+                                    </#list>
+                                </select>
+                            </div>
                         </div>
                         <div class="form-group">
                             <input type="text" class="form-control" name="debtorName" placeholder="Fill this line if you did not choose friend">
@@ -226,6 +241,8 @@
                     <div class="modal-body">
                         <div class="form-group">
                             <input type="email" class="form-control" name="email" placeholder="Friend email">
+                        </div>
+                        <div class="from-group">
                             <input type="text" class="form-control" name="message" placeholder="Message">
                         </div>
                     </div>

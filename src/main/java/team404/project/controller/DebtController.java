@@ -37,13 +37,23 @@ public class DebtController {
     public ModelAndView addDebt(@AuthenticationPrincipal UserDetailsImpl userDetails, DebtDto debtDto) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("redirect:/profile");
-        debtService.create(Debt.builder()
-                .debtCount(debtDto.getDebtCount())
-                .debtor(userService.getById(debtDto.getFriendId()))
-                .owner(userDetails.getUser())
-                .debtorName(debtDto.getDebtorName())
-                .description(debtDto.getDescription())
-                .build());
+        if (debtDto.getWhos().equals("friend")) {
+            debtService.create(Debt.builder()
+                    .debtCount(debtDto.getDebtCount())
+                    .debtor(userService.getById(debtDto.getFriendId()))
+                    .owner(userDetails.getUser())
+                    .debtorName(debtDto.getDebtorName())
+                    .description(debtDto.getDescription())
+                    .build());
+        } else {
+            debtService.create(Debt.builder()
+                    .debtCount(debtDto.getDebtCount())
+                    .debtor(userDetails.getUser())
+                    .owner(userService.getById(debtDto.getFriendId()))
+                    .debtorName(debtDto.getDebtorName())
+                    .description(debtDto.getDescription())
+                    .build());
+        }
         return modelAndView;
     }
 }

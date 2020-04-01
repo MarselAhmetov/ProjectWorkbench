@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 public class DebtDto {
+    private String whos;
     private String debtorName;
     private Integer friendId;
     private Long debtCount;

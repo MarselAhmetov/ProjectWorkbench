@@ -134,31 +134,114 @@
     </div>
     <br>
     <div class="row text-center">
-        <table class="table table-hover">
-            <thead>
-            <tr class="table-warning">
-                <th scope="col">Name</th>
-                <th scope="col">Debt count</th>
-                <th scope="col">Date</th>
-                <th scope="col">Go to</th>
-            </tr>
-            </thead>
-            <tbody>
-            <#list priorityDebts as priorityDebt>
-                <tr>
-                    <form action="/person">
-                        <td>${priorityDebt.owner.username}</td>
-                        <td>${priorityDebt.debtCount}</td>
-                        <td>${priorityDebt.date}</td>
-                        <td><input class="btn-sm btn-warning" type="submit" value="${priorityDebt.owner.username}"></td>
-                        <input type="hidden" value="id" name="personId">
-                    </form>
-                </tr>
-            </#list>
-            </tbody>
-        </table>
-    </div>
+        <div class="col-6">
 
+            <h3>The oldest debts</h3>
+            <table class="table table-hover">
+                <thead>
+                <tr class="table-warning">
+                    <th scope="col">Name</th>
+                    <th scope="col">Debt count</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Go to</th>
+                </tr>
+                </thead>
+                <tbody>
+                <#list oldestDebts as oldestDebt>
+                    <tr>
+                        <form action="/person">
+                            <td>${oldestDebt.owner.username}</td>
+                            <td>${oldestDebt.debtCount}</td>
+                            <td>${oldestDebt.date}</td>
+                            <td><input class="btn-sm btn-warning" type="submit" value="${oldestDebt.owner.username}">
+                            </td>
+                            <input type="hidden" value="id" name="personId">
+                        </form>
+                    </tr>
+                </#list>
+                </tbody>
+            </table>
+
+            <h3>The biggest debts</h3>
+            <table class="table table-hover">
+                <thead>
+                <tr class="table-warning">
+                    <th scope="col">Name</th>
+                    <th scope="col">Debt count</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Go to</th>
+                </tr>
+                </thead>
+                <tbody>
+                <#list maxDebtCounts as maxDebtCount>
+                    <tr>
+                        <form action="/person">
+                            <td>${maxDebtCount.owner.username}</td>
+                            <td>${maxDebtCount.debtCount}</td>
+                            <td>${maxDebtCount.date}</td>
+                            <td><input class="btn-sm btn-warning" type="submit" value="${maxDebtCount.owner.username}">
+                            </td>
+                            <input type="hidden" value="id" name="personId">
+                        </form>
+                    </tr>
+                </#list>
+                </tbody>
+            </table>
+
+            <h3>The smallest debts</h3>
+            <table class="table table-hover">
+                <thead>
+                <tr class="table-warning">
+                    <th scope="col">Name</th>
+                    <th scope="col">Debt count</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Go to</th>
+                </tr>
+                </thead>
+                <tbody>
+                <#list minDebtCounts as minDebtCount>
+                    <tr>
+                        <form action="/person">
+                            <td>${minDebtCount.owner.username}</td>
+                            <td>${minDebtCount.debtCount}</td>
+                            <td>${minDebtCount.date}</td>
+                            <td><input class="btn-sm btn-warning" type="submit" value="${minDebtCount.owner.username}">
+                            </td>
+                            <input type="hidden" value="id" name="personId">
+                        </form>
+                    </tr>
+                </#list>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-6">
+            <h3>Debts sorted by priority</h3>
+            <table class="table table-hover">
+                <thead>
+                <tr class="table-warning">
+                    <th scope="col">Name</th>
+                    <th scope="col">Debt count</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Go to</th>
+                </tr>
+                </thead>
+                <tbody>
+                <#list priorityDebts as priorityDebt>
+                    <tr>
+                        <form action="/person">
+                            <td>${priorityDebt.owner.username}</td>
+                            <td>${priorityDebt.debtCount}</td>
+                            <td>${priorityDebt.date}</td>
+                            <td><input class="btn-sm btn-warning" type="submit" value="${priorityDebt.owner.username}">
+                            </td>
+                            <input type="hidden" value="id" name="personId">
+                        </form>
+                    </tr>
+                </#list>
+                </tbody>
+            </table>
+        </div>
+    </div>
     <!-- Button trigger modal -->
 
 

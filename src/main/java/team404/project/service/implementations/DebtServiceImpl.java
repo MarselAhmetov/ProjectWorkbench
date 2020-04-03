@@ -34,4 +34,18 @@ public class DebtServiceImpl implements DebtService {
     public List<Debt> getByDebtor(User debtor) {
         return debtRepository.getAllByDebtor(debtor);
     }
+
+    @Override
+    public List<Debt> findMinDebtCountByDebtor(User user, Integer limit) {
+        return debtRepository.findMinDebtCount(user.getId(), limit);
+    }
+
+    @Override
+    public List<Debt> findMaxDebtCountByDebtor(User user, Integer limit) {
+        return debtRepository.findMaxDebtCount(user.getId(), limit);
+    }
+
+    public List<Debt> findOldestDebtByDebtor(User user, Integer limit) {
+        return debtRepository.findOldestDebt(user.getId(), limit);
+    }
 }

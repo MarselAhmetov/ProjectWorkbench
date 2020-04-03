@@ -10,4 +10,7 @@ public interface DebtService {
     void deleteById(Integer id);
     List<Debt> getByOwner(User owner);
     List<Debt> getByDebtor(User debtor);
+    List<Debt> findMinDebtCountByDebtor(User user, Integer limit);
+    List<Debt> findMaxDebtCountByDebtor(User user, Integer limit);
+    List<Debt> findOldestDebtByDebtor(User user, Integer limit);
 }

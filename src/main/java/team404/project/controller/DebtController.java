@@ -13,7 +13,6 @@ import team404.project.service.interfaces.DebtService;
 import team404.project.service.interfaces.UserService;
 
 import java.time.LocalDate;
-import java.util.List;
 
 @Controller
 public class DebtController {
@@ -27,11 +26,8 @@ public class DebtController {
     @GetMapping("/debts")
     public ModelAndView getDebtsPage(@AuthenticationPrincipal UserDetailsImpl userDetails) {
         ModelAndView modelAndView = new ModelAndView();
-        List<Debt> debts = debtService.getByOwner(userDetails.getUser());
-        List<Debt> mydebts = debtService.getByDebtor(userDetails.getUser());
-        modelAndView.addObject("debts", debts);
-        modelAndView.addObject("mydebts", mydebts);
-
+        modelAndView.addObject("debts", debtService.getByOwner(userDetails.getUser()));
+        modelAndView.addObject("mydebts", debtService.getByDebtor(userDetails.getUser()));
         modelAndView.setViewName("debts");
         return modelAndView;
     }

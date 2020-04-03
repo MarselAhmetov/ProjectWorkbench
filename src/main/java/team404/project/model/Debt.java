@@ -7,6 +7,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.sql.Date;
+import java.time.LocalDate;
 
 @Data
 @NoArgsConstructor
@@ -20,6 +22,11 @@ public class Debt {
     private Long debtCount;
     private String description;
     private String debtorName;
+    private LocalDate date;
+
+    @Transient
+    private Double priority;
+
     @ManyToOne
     private User debtor;
 

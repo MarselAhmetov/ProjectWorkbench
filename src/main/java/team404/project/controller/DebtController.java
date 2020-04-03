@@ -12,6 +12,7 @@ import team404.project.model.dto.DebtDto;
 import team404.project.service.interfaces.DebtService;
 import team404.project.service.interfaces.UserService;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Controller
@@ -22,6 +23,7 @@ public class DebtController {
     @Autowired
     UserService userService;
 
+
     @GetMapping("/debts")
     public ModelAndView getDebtsPage(@AuthenticationPrincipal UserDetailsImpl userDetails) {
         ModelAndView modelAndView = new ModelAndView();
@@ -29,6 +31,7 @@ public class DebtController {
         List<Debt> mydebts = debtService.getByDebtor(userDetails.getUser());
         modelAndView.addObject("debts", debts);
         modelAndView.addObject("mydebts", mydebts);
+
         modelAndView.setViewName("debts");
         return modelAndView;
     }
@@ -44,6 +47,7 @@ public class DebtController {
                     .owner(userDetails.getUser())
                     .debtorName(debtDto.getDebtorName())
                     .description(debtDto.getDescription())
+                    .date(LocalDate.parse(debtDto.getDate()))
                     .build());
         } else {
             debtService.create(Debt.builder()
@@ -52,6 +56,7 @@ public class DebtController {
                     .owner(userService.getById(debtDto.getFriendId()))
                     .debtorName(debtDto.getDebtorName())
                     .description(debtDto.getDescription())
+                    .date(LocalDate.parse(debtDto.getDate()))
                     .build());
         }
         return modelAndView;

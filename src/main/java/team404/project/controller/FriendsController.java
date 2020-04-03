@@ -2,7 +2,6 @@ package team404.project.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -48,14 +47,12 @@ public class FriendsController {
                     .message(friendRequestDto.getMessage())
                     .date(LocalDate.now())
                     .build());
-            // TODO: 28.03.2020 Отправить запрос дружбы
         } else if (userFromDB == null) {
             mailSenderService.sendMail(MailMessage.builder()
             .mailTo(friendRequestDto.getEmail())
             .subject("Invitation")
             .text("Your friend invites you in our service. His message: \n" + friendRequestDto.getMessage())
             .build());
-            // TODO: 28.03.2020 Отправить приглашение на почту
         } else {
             modelAndView.setViewName("redirect:/friends?error");
             return modelAndView;

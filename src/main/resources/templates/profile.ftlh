@@ -15,8 +15,34 @@
             crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <title>Profile</title>
+    <style type="text/css">
+        .personal-area-header {
+            background-color: lightyellow;
+            border-radius: 15px;
+            padding: 10px 15px;
+        }
+
+        .personal-area-header h3 {
+            margin: 0px;
+        }
+
+        .personal-area-header small {
+            color: #495057;
+        }
+
+        .personal-area-header a {
+            text-decoration: none;
+            color: #495057;
+        }
+
+        .personal-area-menu .btn {
+            margin: 10px 15px 10px 0px;
+        }
+
+    </style>
 </head>
 <body>
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="#">Debt</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -112,21 +138,23 @@
             <thead>
             <tr class="table-warning">
                 <th scope="col">Name</th>
-                <th scope="col">Total</th>
                 <th scope="col">Debt count</th>
+                <th scope="col">Date</th>
                 <th scope="col">Go to</th>
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <form action="/person">
-                    <td>Mark</td>
-                    <td>10002135</td>
-                    <td>125</td>
-                    <td><input class="btn btn-warning" type="submit" value="Name"></td>
-                    <input type="hidden" value="id" name="personId">
-                </form>
-            </tr>
+            <#list priorityDebts as priorityDebt>
+                <tr>
+                    <form action="/person">
+                        <td>${priorityDebt.owner.username}</td>
+                        <td>${priorityDebt.debtCount}</td>
+                        <td>${priorityDebt.date}</td>
+                        <td><input class="btn-sm btn-warning" type="submit" value="${priorityDebt.owner.username}"></td>
+                        <input type="hidden" value="id" name="personId">
+                    </form>
+                </tr>
+            </#list>
             </tbody>
         </table>
     </div>
@@ -194,10 +222,19 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <input type="number" class="form-control" name="debtCount" placeholder="Debt amount" required>
+                            <input type="number" class="form-control" name="debtCount" placeholder="Debt amount"
+                                   required>
                         </div>
                         <div class="form-group">
                             <input type="text" class="form-control" name="description" placeholder="Description">
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <label class="input-group-text">Date</label>
+                                </div>
+                                <input class="form-control" type="date" name="date">
+                            </div>
                         </div>
                         <div class="form-group">
                             <div class="input-group">
@@ -213,7 +250,8 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" name="debtorName" placeholder="Fill this line if you did not choose friend">
+                            <input type="text" class="form-control" name="debtorName"
+                                   placeholder="Fill this line if you did not choose friend">
                         </div>
 
                     </div>
@@ -268,7 +306,8 @@
                 </div>
                 <div class="modal-body">
                     <#list friendRequests as request>
-                        <button class="btn btn-success form-control" data-toggle="collapse" href="#multiCollapseExample1"
+                        <button class="btn btn-success form-control" data-toggle="collapse"
+                                href="#multiCollapseExample1"
                                 role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Friend request
                         </button>
                         <div class="collapse multi-collapse" id="multiCollapseExample1">
@@ -280,10 +319,12 @@
                                     <div class="form-group" align="right">
                                         <input type="hidden" name="request" value="${request.id}" class="form-control">
                                         <input type="hidden" name="sender" value="${request.sender.id}">
-                                        <button type="submit" name="status" class="btn btn-success" value="accept">Accept
+                                        <button type="submit" name="status" class="btn btn-success" value="accept">
+                                            Accept
                                             request
                                         </button>
-                                        <button type="submit" name="status" class="btn btn-danger" value="decline">Decline
+                                        <button type="submit" name="status" class="btn btn-danger" value="decline">
+                                            Decline
                                             request
                                         </button>
                                     </div>

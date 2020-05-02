@@ -19,4 +19,5 @@ public class DebtDto {
     private Long debtCount;
     private String description;
     private String date;
+    private String currency;
 }

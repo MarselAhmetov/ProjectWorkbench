@@ -31,7 +31,7 @@ public class FriendsController {
 
     @GetMapping("/friends")
     public ModelAndView getFriendsPage(@AuthenticationPrincipal UserDetailsImpl userDetails) {
-        ModelAndView modelAndView = new ModelAndView("friends");
+        ModelAndView modelAndView = new ModelAndView("pages/friends");
         modelAndView.addObject("friends", userService.getById(userDetails.getUser().getId()).getFriends());
         return modelAndView;
     }
@@ -47,7 +47,7 @@ public class FriendsController {
                     .message(friendRequestDto.getMessage())
                     .date(LocalDate.now())
                     .build());
-        } else if (userFromDB == null) {
+        } else if (userFromDB == null) {     
             mailSenderService.sendMail(MailMessage.builder()
             .mailTo(friendRequestDto.getEmail())
             .subject("Invitation")
@@ -65,14 +65,16 @@ public class FriendsController {
     public ModelAndView friendRequest(@AuthenticationPrincipal UserDetailsImpl userDetails, @RequestParam("request") Integer requestId, @RequestParam("status") String status, @RequestParam("sender") Integer senderId) {
         ModelAndView modelAndView = new ModelAndView();
 
-        User sender = userService.getById(senderId);
-        sender.getFriends().add(userDetails.getUser());
+        if(status.equals("accept")) {
+            User sender = userService.getById(senderId);
+            sender.getFriends().add(userDetails.getUser());
 
-        User currentUser = userService.getById(userDetails.getUser().getId());
-        currentUser.getFriends().add(sender);
+            User currentUser = userService.getById(userDetails.getUser().getId());
+            currentUser.getFriends().add(sender);
 
-        userService.save(currentUser);
-        userService.save(sender);
+            userService.save(currentUser);
+            userService.save(sender);
+        }
         friendRequestService.deleteById(requestId);
         modelAndView.setViewName("redirect:/profile");
         return modelAndView;

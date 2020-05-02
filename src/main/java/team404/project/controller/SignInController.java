@@ -9,7 +9,7 @@ public class SignInController {
 
     @GetMapping("/signIn")
     public ModelAndView getLoginPage() {
-        ModelAndView modelAndView = new ModelAndView("signin");
+        ModelAndView modelAndView = new ModelAndView("pages/signin");
         return modelAndView;
     }
 }

@@ -3,7 +3,7 @@
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="../static/css/styles.css">
+    <link rel="stylesheet" href="../../static/css/styles.css">
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
             integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
             crossorigin="anonymous"></script>
@@ -37,13 +37,14 @@
                     <th scope="col">Debtor</th>
                     <th scope="col">Description</th>
                     <th scope="col">Debt count</th>
+                    <th scope="col">Currency</th>
                     <th scope="col">Go to</th>
                 </tr>
                 </thead>
                 <tbody>
                 <#list debts as debt>
                     <tr>
-                        <form action="/person">
+                        <form action="/debt" method="get">
                             <#if !debt.debtor??>
                                 <td>${debt.debtorName}</td>
                             <#else>
@@ -51,8 +52,9 @@
                             </#if>
                             <td>${debt.description}</td>
                             <td>${debt.debtCount}</td>
+                            <td>${debt.currency}</td>
                             <td>
-                                <button class="btn btn-warning" type="submit" value="${debt.id}">Delete</button>
+                                <button class="btn btn-warning" type="submit" name="id" value="${debt.id}">Info</button>
                             </td>
                         </form>
                     </tr>
@@ -74,16 +76,16 @@
                 <tbody>
                 <#list mydebts as mydebt>
                     <tr>
-                        <form action="/person">
-                            <#if !mydebt.debtor??>
-                                <td>${mydebt.owner}</td>
-                            <#else>
+                        <form action="/debt" method="get">
+                            <#if mydebt.owner??>
                                 <td>${mydebt.owner.username}</td>
+                            <#else>
+                                <td>${mydebt.debtorName}</td>
                             </#if>
                             <td>${mydebt.description}</td>
                             <td>${mydebt.debtCount}</td>
                             <td>
-                                <button class="btn btn-warning" type="submit" value="${mydebt.id}">Delete</button>
+                                <button class="btn btn-warning" type="submit" name="id" value="${mydebt.id}">Close</button>
                             </td>
                         </form>
                     </tr>

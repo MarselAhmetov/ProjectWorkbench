@@ -48,4 +48,9 @@ public class DebtServiceImpl implements DebtService {
     public List<Debt> findOldestDebtByDebtor(User user, Integer limit) {
         return debtRepository.findOldestDebt(user.getId(), limit);
     }
+
+    @Override
+    public Debt getById(Integer id) {
+        return debtRepository.getById(id);
+    }
 }

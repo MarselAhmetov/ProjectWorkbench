@@ -13,4 +13,5 @@ public interface DebtService {
     List<Debt> findMinDebtCountByDebtor(User user, Integer limit);
     List<Debt> findMaxDebtCountByDebtor(User user, Integer limit);
     List<Debt> findOldestDebtByDebtor(User user, Integer limit);
+    Debt getById(Integer id);
 }

@@ -10,6 +10,8 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.access.intercept.FilterSecurityInterceptor;
+import team404.project.filter.CustomFilter;
 
 @EnableWebSecurity
 @Configuration
@@ -25,12 +27,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        
+        http.addFilterAfter(new CustomFilter(), FilterSecurityInterceptor.class);
+
         http.csrf().disable();
 
         http.authorizeRequests()
                 .antMatchers("/signUp").permitAll()
-                .antMatchers("/profile").authenticated()
-                .antMatchers("/").authenticated();
+                .antMatchers("/", "/profile").authenticated();
 
         http.formLogin()
                 .loginPage("/signIn")

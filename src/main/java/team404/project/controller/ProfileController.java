@@ -28,7 +28,7 @@ public class ProfileController {
 
     @GetMapping("/profile")
     public ModelAndView getProfile(@AuthenticationPrincipal UserDetailsImpl user) {
-        ModelAndView modelAndView = new ModelAndView("profile");
+        ModelAndView modelAndView = new ModelAndView("pages/profile");
         modelAndView.addObject("user", userService.getById(user.getUser().getId()));
         modelAndView.addObject("friendRequests", friendRequestService.getByReceiver(user.getUser()));
         modelAndView.addObject("oldestDebts", debtService.findOldestDebtByDebtor(user.getUser(), 3));

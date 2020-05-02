@@ -23,6 +23,7 @@ public class Debt {
     private String description;
     private String debtorName;
     private LocalDate date;
+    private Currency currency;
 
     @Transient
     private Double priority;

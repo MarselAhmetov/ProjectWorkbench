@@ -17,7 +17,7 @@ public class ConfirmController {
     public ModelAndView confirm(@RequestParam("code") String code) {
         ModelAndView modelAndView = new ModelAndView();
         confirmService.confirm(code);
-        modelAndView.setViewName("confirm_page");
+        modelAndView.setViewName("pages/confirm_page");
         return modelAndView;
     }
 }

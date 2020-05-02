@@ -11,6 +11,7 @@ public interface DebtRepository extends CrudRepository<Debt, Integer> {
     void deleteById(Integer id);
     List<Debt> getAllByOwner(User owner);
     List<Debt> getAllByDebtor(User debtor);
+    Debt getById(Integer id);
 //    Long countAllByOwner(User owner);
     @Query(value = "select * from project.debt where debtor_id = ?1 order by debt_count asc limit ?2", nativeQuery = true)
     List<Debt> findMinDebtCount(Integer id, Integer limit);

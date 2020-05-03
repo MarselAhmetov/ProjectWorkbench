@@ -21,7 +21,7 @@
                         <button type="button" class="btn btn-warning" data-toggle="modal"
                                 data-target="#notificationModal">
                             Notifications
-                            <#if friendRequests??>
+                            <#if friendRequests?size gt 0>
                                 <span class="badge badge-light">${friendRequests?size}</span>
                             </#if>
                         </button>

@@ -23,7 +23,10 @@ public class Debt {
     private String description;
     private String debtorName;
     private LocalDate date;
+    @Enumerated(EnumType.STRING)
     private Currency currency;
+    @Enumerated(EnumType.STRING)
+    private DebtStatus status;
 
     @Transient
     private Double priority;

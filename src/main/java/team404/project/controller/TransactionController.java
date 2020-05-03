@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import team404.project.model.Debt;
+import team404.project.model.DebtStatus;
 import team404.project.model.Transaction;
 import team404.project.model.UserDetailsImpl;
 import team404.project.model.dto.TransactionDto;
@@ -28,6 +29,9 @@ public class TransactionController {
         ModelAndView modelAndView = new ModelAndView("redirect:/debts");
         Debt debt = debtService.getById(transactionDto.getDebtId());
         debt.setDebtCount(debt.getDebtCount() - transactionDto.getCount());
+        if (debt.getDebtCount() <= 0 ) {
+            debt.setStatus(DebtStatus.CLOSED);
+        }
         Transaction transaction = Transaction.builder()
                 .actioner(userDetails.getUser())
                 .count(transactionDto.getCount())

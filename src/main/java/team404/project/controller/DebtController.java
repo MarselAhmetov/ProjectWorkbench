@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import team404.project.model.Currency;
 import team404.project.model.Debt;
+import team404.project.model.DebtStatus;
 import team404.project.model.UserDetailsImpl;
 import team404.project.model.dto.DebtDto;
 import team404.project.service.interfaces.DebtService;
@@ -45,6 +46,23 @@ public class DebtController {
         return modelAndView;
     }
 
+    @PostMapping("/debt")
+    public ModelAndView archiveDebt(@RequestParam("debtId") Integer id, @RequestParam("action") String action) {
+        ModelAndView modelAndView = new ModelAndView("redirect:/debts");
+        switch (action) {
+            case "archive":
+                Debt debt = debtService.getById(id);
+                debt.setStatus(DebtStatus.ARCHIVED);
+                debtService.create(debt);
+                break;
+            case "delete":
+                transactionService.deleteByDebt(debtService.getById(id));
+                debtService.deleteById(id);
+                break;
+        }
+        return modelAndView;
+    }
+
     @PostMapping("/debts")
     public ModelAndView addDebt(@AuthenticationPrincipal UserDetailsImpl userDetails, DebtDto debtDto) {
         Debt debt = Debt.builder()
@@ -53,6 +71,7 @@ public class DebtController {
                 .description(debtDto.getDescription())
                 .currency(Currency.valueOf(debtDto.getCurrency()))
                 .date(LocalDate.parse(debtDto.getDate()))
+                .status(DebtStatus.OPENED)
                 .build();
 
         if (debtDto.getWhos().equals("friend")) {

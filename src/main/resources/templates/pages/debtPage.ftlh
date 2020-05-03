@@ -69,6 +69,15 @@
                         </div>
                     </div>
                 </form>
+                <form action="/debt" method="post">
+                    <input type="hidden" name="debtId" value="${debt.id}">
+                    <div class="input-group">
+                        <button class="btn btn-warning" type="submit" name="action" value="archive">Archive</button>
+                    </div>
+                    <div class="input-group">
+                        <button class="btn btn-warning" type="submit" name="action" value="delete">Delete</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

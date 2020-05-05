@@ -1,5 +1,6 @@
 package team404.project.filter;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.GenericFilterBean;
 
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
 @Component
+@Scope("customScope")
 public class CustomFilter extends GenericFilterBean {
 
     @Override

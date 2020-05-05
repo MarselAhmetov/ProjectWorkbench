@@ -13,7 +13,7 @@
         <div class="col-4">
             <div class="row">
                 <div class="col-4">
-                    <img src="http://placehold.it/100x100" alt="" style="border-radius: 50%">
+                    <img src="https://api.kwelo.com/v1/media/identicon/${user.username}" alt="" width="100" height="100" style="border: 2px">
                 </div>
                 <div class="col-6">
                     <div class="row"><h3 class="">${user.username}</h3></div>

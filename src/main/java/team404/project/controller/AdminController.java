@@ -14,7 +14,7 @@ public class AdminController {
 
     @GetMapping("/admin")
     public ModelAndView getAdminPage() {
-        ModelAndView modelAndView = new ModelAndView();
+        ModelAndView modelAndView = new ModelAndView("pages/admin");
         modelAndView.addObject("users", userService.getAll());
         return modelAndView;
     }

@@ -65,17 +65,19 @@
                         <input type="text" class="form-control" placeholder="Count" name="count">
                         <input type="hidden" name="debtId" value="${debt.id}">
                         <div class="input-group-append">
-                            <button class="btn btn-warning" type="submit">Button</button>
+                            <button class="btn btn-warning" type="submit">Pay</button>
                         </div>
                     </div>
                 </form>
                 <form action="/debt" method="post">
                     <input type="hidden" name="debtId" value="${debt.id}">
                     <div class="input-group">
-                        <button class="btn btn-warning" type="submit" name="action" value="archive">Archive</button>
-                    </div>
-                    <div class="input-group">
-                        <button class="btn btn-warning" type="submit" name="action" value="delete">Delete</button>
+                        <div class="input-group-prepend">
+                            <button class="btn btn-warning" type="submit" name="action" value="archive">Archive</button>
+                        </div>
+                        <div class="input-group-append">
+                            <button class="btn btn-warning" type="submit" name="action" value="delete">Delete</button>
+                        </div>
                     </div>
                 </form>
             </div>

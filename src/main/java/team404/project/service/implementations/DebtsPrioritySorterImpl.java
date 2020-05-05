@@ -2,16 +2,13 @@ package team404.project.service.implementations;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import team404.project.model.Debt;
+import team404.project.model.entity.Debt;
 import team404.project.service.interfaces.DebtPrioritySorter;
 
 import javax.persistence.EntityManager;
-import javax.persistence.Query;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Service
 public class DebtsPrioritySorterImpl implements DebtPrioritySorter {

@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import team404.project.model.entity.User;
+import team404.project.model.enums.AccountStatus;
 
 import java.util.Collection;
 import java.util.Collections;

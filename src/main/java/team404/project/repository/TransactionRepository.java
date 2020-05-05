@@ -1,8 +1,8 @@
 package team404.project.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import team404.project.model.Debt;
-import team404.project.model.Transaction;
+import team404.project.model.entity.Debt;
+import team404.project.model.entity.Transaction;
 
 import javax.transaction.Transactional;
 import java.util.List;

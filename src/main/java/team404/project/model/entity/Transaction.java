@@ -1,4 +1,4 @@
-package team404.project.model;
+package team404.project.model.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

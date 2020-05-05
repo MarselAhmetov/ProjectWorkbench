@@ -1,6 +1,6 @@
 package team404.project.service.interfaces;
 
-import team404.project.model.Debt;
+import team404.project.model.entity.Debt;
 
 import java.util.List;
 

@@ -5,7 +5,7 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
-import team404.project.model.Debt;
+import team404.project.model.entity.Debt;
 import team404.project.model.UserDetailsImpl;
 import team404.project.service.interfaces.DebtPrioritySorter;
 import team404.project.service.interfaces.DebtService;

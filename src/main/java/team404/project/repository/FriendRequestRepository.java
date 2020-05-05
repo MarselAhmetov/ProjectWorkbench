@@ -1,8 +1,8 @@
 package team404.project.repository;
 
 import org.springframework.data.repository.CrudRepository;
-import team404.project.model.FriendRequest;
-import team404.project.model.User;
+import team404.project.model.entity.FriendRequest;
+import team404.project.model.entity.User;
 
 import java.util.List;
 

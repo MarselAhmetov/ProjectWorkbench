@@ -25,10 +25,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
+    @Autowired
+    private CustomFilter customFilter;
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         
-        http.addFilterAfter(new CustomFilter(), FilterSecurityInterceptor.class);
+        http.addFilterAfter(customFilter, FilterSecurityInterceptor.class);
 
         http.csrf().disable();
 

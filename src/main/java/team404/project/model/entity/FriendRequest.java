@@ -1,4 +1,4 @@
-package team404.project.model;
+package team404.project.model.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.Date;
 
 @Data
 @NoArgsConstructor

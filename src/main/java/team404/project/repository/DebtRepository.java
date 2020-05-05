@@ -2,8 +2,8 @@ package team404.project.repository;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
-import team404.project.model.Debt;
-import team404.project.model.User;
+import team404.project.model.entity.Debt;
+import team404.project.model.entity.User;
 
 import java.util.List;
 

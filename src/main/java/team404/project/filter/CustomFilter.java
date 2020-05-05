@@ -1,5 +1,6 @@
 package team404.project.filter;
 
+import org.springframework.stereotype.Component;
 import org.springframework.web.filter.GenericFilterBean;
 
 import javax.servlet.FilterChain;
@@ -9,6 +10,7 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
+@Component
 public class CustomFilter extends GenericFilterBean {
 
     @Override

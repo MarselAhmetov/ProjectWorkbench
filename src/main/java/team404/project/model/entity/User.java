@@ -1,9 +1,11 @@
-package team404.project.model;
+package team404.project.model.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import team404.project.model.enums.AccountStatus;
+import team404.project.model.enums.Role;
 
 import javax.persistence.*;
 import java.util.List;

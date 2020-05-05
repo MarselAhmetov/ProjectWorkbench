@@ -1,4 +1,4 @@
-package team404.project.model;
+package team404.project.model.enums;
 
 import org.springframework.security.core.GrantedAuthority;
 
@@ -7,6 +7,6 @@ public enum Role implements GrantedAuthority {
 
     @Override
     public String getAuthority() {
-        return null;
+        return name();
     }
 }

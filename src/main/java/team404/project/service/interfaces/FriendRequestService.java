@@ -1,7 +1,7 @@
 package team404.project.service.interfaces;
 
-import team404.project.model.FriendRequest;
-import team404.project.model.User;
+import team404.project.model.entity.FriendRequest;
+import team404.project.model.entity.User;
 
 import java.util.List;
 

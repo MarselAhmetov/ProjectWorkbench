@@ -1,7 +1,7 @@
 package team404.project.repository;
 
 import org.springframework.data.repository.CrudRepository;
-import team404.project.model.User;
+import team404.project.model.entity.User;
 
 public interface UserRepository extends CrudRepository<User, Integer> {
     User getByEmail(String email);

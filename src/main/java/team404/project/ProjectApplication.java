@@ -1,5 +1,6 @@
 package team404.project;
 
+import bell.oauth.discord.main.OAuthBuilder;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
 import org.springframework.boot.SpringApplication;
@@ -35,6 +36,14 @@ public class ProjectApplication {
     @Bean
     public static BeanFactoryPostProcessor beanFactoryPostProcessor() {
         return new CustomBeanFactoryPostProcessor();
+    }
+
+    @Bean
+    public OAuthBuilder oAuthBuilder() {
+        OAuthBuilder builder = new OAuthBuilder("709778458049249353", "JgOfQHBVPhr3VjMVFaSUnSQUfLEpx8At")
+                .setScopes(new String[]{"connections", "guilds", "email"})
+                .setRedirectURI("http://127.0.0.1:8080/discord");
+        return builder;
     }
 
     public static void main(String[] args) {

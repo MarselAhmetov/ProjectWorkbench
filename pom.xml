@@ -93,8 +93,19 @@
             <artifactId>spring-websocket</artifactId>
             <version>5.2.5.RELEASE</version>
         </dependency>
-    </dependencies>
 
+        <dependency>
+            <groupId>com.github.HayateLaTech</groupId>
+            <artifactId>OAuth2Discord</artifactId>
+            <version>1</version>
+        </dependency>
+    </dependencies>
+    <repositories>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
+    </repositories>
     <build>
         <plugins>
             <plugin>

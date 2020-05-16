@@ -36,6 +36,11 @@ public class DebtServiceImpl implements DebtService {
     }
 
     @Override
+    public List<Debt> getAllByDebtorAndOwner(User debtor, User owner) {
+        return debtRepository.getAllByDebtorAndOwner(debtor, owner);
+    }
+
+    @Override
     public List<Debt> findMinDebtCountByDebtor(User user, Integer limit) {
         return debtRepository.findMinDebtCount(user.getId(), limit);
     }

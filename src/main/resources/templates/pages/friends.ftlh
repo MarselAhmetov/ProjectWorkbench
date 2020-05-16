@@ -23,14 +23,11 @@
             <#if friends??>
                 <#list friends as friend>
                     <tr>
-                        <form action="/profile" method="get">
-                            <td>${friend.username}</td>
-                            <td>${friend.email}</td>
-                            <td>
-                                <button class="btn btn-warning" type="submit" name="userId"
-                                        value="${friend.id}">${friend.username}</button>
-                            </td>
-                        </form>
+                        <td>${friend.username}</td>
+                        <td>${friend.email}</td>
+                        <td>
+                            <a href="/profile/${friend.id}" class="btn btn-warning">${friend.username}</a>
+                        </td>
                     </tr>
                 </#list>
             </#if>

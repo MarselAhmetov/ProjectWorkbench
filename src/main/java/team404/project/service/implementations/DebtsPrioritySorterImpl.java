@@ -15,9 +15,15 @@ public class DebtsPrioritySorterImpl implements DebtPrioritySorter {
     @Autowired
     EntityManager entityManager;
 
+    @Autowired
+    DebtServiceImpl debtService;
+
+    @Autowired
+    CurrencyService currencyService;
+
     public List<Debt> sortByPriority(List<Debt> debts) {
         for (Debt debt : debts) {
-            debt.setPriority(debt.getDebtCount() * 2.0 + Math.abs(ChronoUnit.DAYS.between(debt.getDate(), LocalDate.now())) * 100);
+            debt.setPriority(debt.getDebtCount() * 2.0 * currencyService.getCurrencyToRuble(debt.getCurrency()) + Math.abs(ChronoUnit.DAYS.between(debt.getDate(), LocalDate.now())) * 200 * debtService.getByOwner(debt.getOwner()).size());
         }
         debts.sort((o1, o2) -> o2.getPriority().compareTo(o1.getPriority()));
         return debts;

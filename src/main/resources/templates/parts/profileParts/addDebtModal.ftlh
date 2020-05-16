@@ -48,7 +48,7 @@
                             </div>
                             <select class="form-control" name="friendId" id="inputFriendSelect" onclick="changeFriend()" required>
                                 <option value="-1">None</option>
-                                <#list user.friends as friend>
+                                <#list currentUser.friends as friend>
                                     <option value="${friend.id}">${friend.username}</option>
                                 </#list>
                             </select>

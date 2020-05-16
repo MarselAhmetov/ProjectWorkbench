@@ -39,26 +39,28 @@
                     </p>
                 </div>
                 <div class="col-6" align="center">
-                    <table class="table table-hover">
-                        <thead>
-                        <tr class="table-warning">
-                            <th scope="col">Actioner</th>
-                            <th scope="col">Transaction count</th>
-                            <th scope="col">Time</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <#list transactions as transaction>
-                            <tr>
-                                <form action="/person">
-                                    <td>${transaction.actioner.username}</td>
-                                    <td>${transaction.count}</td>
-                                    <td>${transaction.time}</td>
-                                </form>
+                    <div class="overflow-auto" style="height: 500px">
+                        <table class="table table-hover">
+                            <thead>
+                            <tr class="table-warning">
+                                <th scope="col">Actioner</th>
+                                <th scope="col">Transaction count</th>
+                                <th scope="col">Time</th>
                             </tr>
-                        </#list>
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                            <#list transactions as transaction>
+                                <tr>
+                                    <form action="/person">
+                                        <td>${transaction.actioner.username}</td>
+                                        <td>${transaction.count}</td>
+                                        <td>${transaction.time}</td>
+                                    </form>
+                                </tr>
+                            </#list>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
                 <form action="/transaction" method="post">
                     <div class="input-group">

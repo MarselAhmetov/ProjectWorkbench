@@ -23,7 +23,7 @@
                 </div>
                 <button type="submit" class="btn btn-warning">SignIn</button>
             </form>
-            <a class="btn btn-primary" href="https://discord.com/api/oauth2/authorize?client_id=709778458049249353&redirect_uri=http%3A%2F%2F127.0.0.1%3A8080%2Fdiscord&response_type=code&scope=connections%20guilds%20email%20identify">SignIn with Discord</a>
+            <a class="btn btn-primary" href="https://discord.com/api/oauth2/authorize?client_id=709778458049249353&redirect_uri=http%3A%2F%2Flocalhost%3A8080%2Fdiscord%2Fauth&response_type=code&scope=identify%20connections%20email%20guilds">SignIn with Discord</a>
         </div>
         <div class="col-md-4"></div>
     </div>

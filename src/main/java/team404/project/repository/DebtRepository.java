@@ -19,4 +19,7 @@ public interface DebtRepository extends CrudRepository<Debt, Integer> {
     List<Debt> findMaxDebtCount(Integer id, Integer limit);
     @Query(value = "select * from project.debt where debtor_id = ?1 order by date limit ?2", nativeQuery = true)
     List<Debt> findOldestDebt(Integer id, Integer limit);
+    @Query(value = "select from project.debt where debtor_id = ?1", nativeQuery = true)
+    List<Debt> getAllByDebtorId(Integer id);
+    List<Debt> getAllByDebtorAndOwner(User debtor, User owner);
 }

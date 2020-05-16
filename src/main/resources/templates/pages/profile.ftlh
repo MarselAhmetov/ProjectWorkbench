@@ -13,10 +13,10 @@
         <div class="col-4">
             <div class="row">
                 <div class="col-4">
-                    <img src="https://api.kwelo.com/v1/media/identicon/${user.username}" alt="" width="100" height="100" style="border: 2px">
+                    <img src="https://api.kwelo.com/v1/media/identicon/${currentUser.username}" alt="" width="100" height="100" style="border: 2px">
                 </div>
                 <div class="col-6">
-                    <div class="row"><h3 class="">${user.username}</h3></div>
+                    <div class="row"><h3 class="">${currentUser.username}</h3></div>
                     <div class="row">
                         <button type="button" class="btn btn-warning" data-toggle="modal"
                                 data-target="#notificationModal">
@@ -104,6 +104,7 @@
                     <th scope="col">Name</th>
                     <th scope="col">Debt count</th>
                     <th scope="col">Date</th>
+                    <th scope="col">Priority</th>
                     <th scope="col">Go to</th>
                 </tr>
                 </thead>
@@ -120,6 +121,7 @@
                             </td>
                             <td>${priorityDebt.debtCount}</td>
                             <td>${priorityDebt.date}</td>
+                            <td>${priorityDebt.priority}</td>
                             <td>
                                 <button class="btn btn-warning" type="submit" name="id" value="${priorityDebt.id}">Close</button>
                             </td>

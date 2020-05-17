@@ -12,6 +12,8 @@ import team404.project.model.entity.ChatMessage;
 import team404.project.service.interfaces.ChatMessageService;
 import team404.project.service.interfaces.UserService;
 
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 
 @Component
@@ -29,6 +31,7 @@ public class WebSocketMessagesHandler extends TextWebSocketHandler {
 
     @Autowired
     ChatMessageService chatMessageService;
+
 
     @Override
     public void handleMessage(WebSocketSession session, WebSocketMessage<?> message) throws Exception {

@@ -14,6 +14,9 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="http://localhost:8080/chat">Chat <span class="sr-only">(current)</span></a>
                 </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="http://localhost:8080/support">Support <span class="sr-only">(current)</span></a>
+                </li>
 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"

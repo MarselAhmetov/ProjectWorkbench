@@ -12,6 +12,9 @@ function connect() {
         var messages = document.getElementById('messages')
         messages.appendChild(li);
     }
+    webSocket.onopen = function () {
+        webSocket.send(username, "logged in")
+    }
 }
 
 

@@ -1,6 +1,6 @@
 var webSocket;
 
-function connect() {
+function connect(username) {
     /*webSocket = new WebSocket('ws://localhost:8080/chat');*/
     webSocket = new SockJS("http://localhost:8080/chat");
 
@@ -13,7 +13,12 @@ function connect() {
         messages.appendChild(li);
     }
     webSocket.onopen = function () {
-        webSocket.send(username, "logged in")
+        let message = {
+            "text": "",
+            "sender": username,
+            "receiver": null,
+        }
+        webSocket.send(JSON.stringify(message))
     }
 }
 
@@ -26,15 +31,4 @@ function sendMessage(text, username, receiver) {
         "receiver": receiver,
     };
     webSocket.send(JSON.stringify(message));
-    var button2 = document.getElementById("button2");
-    button2.hidden = false;
-    var button1 = document.getElementById("button1");
-    button1.hidden = true;
-}
-
-function closeChat() {
-    var button1 = document.getElementById("button1");
-    button1.hidden = false;
-    var button2 = document.getElementById("button2");
-    button2.hidden = true;
 }

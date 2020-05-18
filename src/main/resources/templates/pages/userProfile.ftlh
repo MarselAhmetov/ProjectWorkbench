@@ -5,7 +5,7 @@
     <title>Profile</title>
     <script src="/js/chat_scripts.js"></script>
 </head>
-<body onload="connect()">
+<body onload="connect('${currentUser.username}')">
 <#include "../parts/header.ftlh">
 <br>
 <br>
@@ -89,37 +89,22 @@
         </div>
         <div class="col-4">
             <h3 align="center">Chat</h3>
-            <button class="btn btn-success form-control" data-toggle="collapse"
-                    id="button1"
-                    href="#multiCollapseExample1"
-                    role="button" aria-expanded="false" aria-controls="multiCollapseExample1"
-                    onclick="sendMessage('${currentUser.username} logged into chat', '${currentUser.username}', null)">
-                Open chat
-            </button>
-            <button hidden class="btn btn-warning form-control" data-toggle="collapse"
-                    id="button2"
-                    href="#multiCollapseExample1"
-                    role="button" aria-expanded="false" aria-controls="multiCollapseExample1" onclick="closeChat()">
-                Close chat
-            </button>
-            <div class="collapse multi-collapse" id="multiCollapseExample1">
-                <div class="card card-body">
-                    <div class="overflow-auto" style="height: 400px">
-                        История сообщений:
-                        <ul id="messages">
-                            <#list messages as message>
-                                <li>${message.sender.username}: ${message.text}</li>
-                            </#list>
-                        </ul>
-                    </div>
-                    <div class="input-group">
-                        <input class="form-control" type="text" id="message_text">
-                        <div class="input-group-append">
-                            <button class="btn btn-warning"
-                                    onclick="sendMessage($('#message_text').val(), '${currentUser.username}', '${user.username}')">
-                                Send
-                            </button>
-                        </div>
+            <div class="card card-body">
+                <div class="overflow-auto" style="height: 400px">
+                    История сообщений:
+                    <ul id="messages">
+                        <#list messages as message>
+                            <li>${message.sender.username}: ${message.text}</li>
+                        </#list>
+                    </ul>
+                </div>
+                <div class="input-group">
+                    <input class="form-control" type="text" id="message_text">
+                    <div class="input-group-append">
+                        <button class="btn btn-warning"
+                                onclick="sendMessage($('#message_text').val(), '${currentUser.username}', '${user.username}')">
+                            Send
+                        </button>
                     </div>
                 </div>
             </div>

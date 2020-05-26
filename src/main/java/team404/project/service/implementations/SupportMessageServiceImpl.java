@@ -1,9 +1,10 @@
-package team404.project.service.interfaces;
+package team404.project.service.implementations;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import team404.project.model.entity.SupportMessage;
 import team404.project.repository.SupportMessageRepository;
+import team404.project.service.interfaces.SupportMessageService;
 
 import java.util.List;
 

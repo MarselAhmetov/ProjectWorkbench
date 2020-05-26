@@ -1,10 +1,11 @@
-package team404.project.service.interfaces;
+package team404.project.service.implementations;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import team404.project.model.entity.ChatMessage;
 import team404.project.model.entity.User;
 import team404.project.repository.ChatMessageRepository;
+import team404.project.service.interfaces.ChatMessageService;
 
 import java.util.List;
 

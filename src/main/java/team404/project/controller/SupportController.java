@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import team404.project.model.MailMessage;
-import team404.project.model.UserDetailsImpl;
+import team404.project.security.UserDetailsImpl;
 import team404.project.model.dto.SupportMessageDto;
 import team404.project.model.entity.SupportMessage;
 import team404.project.model.entity.User;

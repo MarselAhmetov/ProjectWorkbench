@@ -1,4 +1,4 @@
-package team404.project.config;
+package team404.project.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -10,8 +10,6 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.access.intercept.FilterSecurityInterceptor;
-import team404.project.filter.CustomFilter;
 
 @EnableWebSecurity
 @Configuration
@@ -25,13 +23,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    @Autowired
-    private CustomFilter customFilter;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        
-        http.addFilterAfter(customFilter, FilterSecurityInterceptor.class);
 
         http.csrf().disable();
 

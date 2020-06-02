@@ -10,7 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 import team404.project.model.entity.FriendRequest;
 import team404.project.model.MailMessage;
 import team404.project.model.entity.User;
-import team404.project.model.UserDetailsImpl;
+import team404.project.security.UserDetailsImpl;
 import team404.project.model.dto.FriendRequestDto;
 import team404.project.service.interfaces.FriendRequestService;
 import team404.project.service.interfaces.MailSenderService;

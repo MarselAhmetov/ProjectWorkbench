@@ -10,7 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 import team404.project.model.enums.Currency;
 import team404.project.model.entity.Debt;
 import team404.project.model.enums.DebtStatus;
-import team404.project.model.UserDetailsImpl;
+import team404.project.security.UserDetailsImpl;
 import team404.project.model.dto.DebtDto;
 import team404.project.service.interfaces.DebtService;
 import team404.project.service.interfaces.TransactionService;

@@ -16,16 +16,11 @@ import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 @Configuration
 public class LocalizationConfig implements WebMvcConfigurer {
 
-
-    // добавляем перехватчик в контекст сервлетов
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(localeChangeInterceptor());
     }
 
-    // Перехватчик запросов - все запросы на сервер будут проходить через него
-    // если в запросе есть параметр ?lang, то он изменит локализацию
-    // get localhost/profile?lang=ru
     @Bean
     public LocaleChangeInterceptor localeChangeInterceptor() {
         LocaleChangeInterceptor localeChangeInterceptor = new LocaleChangeInterceptor();
@@ -33,7 +28,6 @@ public class LocalizationConfig implements WebMvcConfigurer {
         return localeChangeInterceptor;
     }
 
-    // этот бин определяет текущую локализацию исходя из кук
     @Bean
     public LocaleResolver localeResolver() {
         CookieLocaleResolver cookieLocaleResolver = new CookieLocaleResolver();
@@ -49,7 +43,6 @@ public class LocalizationConfig implements WebMvcConfigurer {
         return bean;
     }
 
-    // говорим, где находятся наши файлы с локализацией
     @Bean
     public MessageSource messageSource() {
         ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
@@ -58,8 +51,6 @@ public class LocalizationConfig implements WebMvcConfigurer {
         return messageSource;
     }
 
-    // ru -> messages_ru
-    // en -> messages_en
     @Override
     public MessageCodesResolver getMessageCodesResolver() {
         DefaultMessageCodesResolver codesResolver = new DefaultMessageCodesResolver();

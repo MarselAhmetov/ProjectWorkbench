@@ -1,4 +1,4 @@
-package team404.project.model;
+package team404.project.security;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

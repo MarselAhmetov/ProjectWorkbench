@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import team404.project.model.MailMessage;
-import team404.project.model.UserDetailsImpl;
+import team404.project.security.UserDetailsImpl;
 import team404.project.model.entity.User;
 import team404.project.model.enums.AccountStatus;
 import team404.project.model.enums.Role;
@@ -43,8 +43,6 @@ public class DiscordController {
         builder.exchange(code);
 
         if (type.equals("register")) {
-            builder.setRedirectURI("http://localhost:8080/discord/register");
-            builder.exchange(code);
             bell.oauth.discord.domain.User user = builder.getUser();
             String password = UUID.randomUUID().toString();
 
